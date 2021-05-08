@@ -31,7 +31,6 @@ export class CarService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
-
 }
 
 export interface Car {

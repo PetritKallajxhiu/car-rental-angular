@@ -15,9 +15,9 @@ export class AddCarComponent implements OnInit {
   brands: Brand[] = [];
 
   fuelTypes: FuelTypeViewModel[] = [
-    {id: FuelType.Diesel, type: 'Diesel'},
-    {id: FuelType.Electric, type: 'Electric'},
-    {id: FuelType.Gasoline, type: 'Gasoline'}
+    {id: FuelType.Gasoline, name: 'Gasoline'},
+    {id: FuelType.Diesel, name: 'Diesel'},
+    {id: FuelType.Electric, name: 'Electric'}
   ];
 
   constructor(private carService: CarService, private router: Router,
@@ -43,9 +43,14 @@ export class AddCarComponent implements OnInit {
       id: new FormControl(car.id),
       name: new FormControl(car.name),
       passengers: new FormControl(car.passengers),
+      doors: new FormControl(car.doors),
+      engine: new FormControl(car.engine),
+      fuelType: new FormControl(car.fuelType),
       photo: new FormControl(car.photo),
+      price: new FormControl(car.price),
+      location: new FormControl(car.location),
+      featured: new FormControl(car.featured),
       brandId: new FormControl(car.brandId),
-      fuelType: new FormControl(car.fuelType)
     });
   }
 
@@ -59,5 +64,5 @@ export class AddCarComponent implements OnInit {
 
 interface FuelTypeViewModel {
   id: number;
-  type: string;
+  name: string;
 }
