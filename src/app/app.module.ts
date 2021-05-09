@@ -9,6 +9,7 @@ import { HomePageComponent } from './model/home-page/home-page.component';
 import { AllCarsComponent } from './model/all-cars/all-cars.component';
 import { AddCarComponent } from './model/all-cars/add-car/add-car.component';
 import { ReservationComponent } from './model/reservation/reservation.component';
+import { ManageReservationsComponent } from './model/reservation/manageReservations/manage-reservations/manage-reservations.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReservationComponent } from './model/reservation/reservation.component'
     HomePageComponent,
     AllCarsComponent,
     AddCarComponent,
-    ReservationComponent
+    ReservationComponent,
+    ManageReservationsComponent
   ],
   imports: [
     BrowserModule,
