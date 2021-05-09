@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class CarService {
+export class CarServices {
   private baseUrl = 'http://localhost:8080/api/cars';
 
   private httpHeaders = {
