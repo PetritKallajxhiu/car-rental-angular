@@ -20,7 +20,7 @@ export class AllCarsComponent implements OnInit {
   updateCars(): void {
     this.carservice.getAll().subscribe(response => {
       this.cars = response;
-    });
+    })
   }
 
   onDeleteCar(id: number): void {

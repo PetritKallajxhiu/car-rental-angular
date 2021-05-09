@@ -44,4 +44,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/src/app/model/reservation/manageReservations/manage-reservations/
+/src/app/model/reservation/manage-reservations/
