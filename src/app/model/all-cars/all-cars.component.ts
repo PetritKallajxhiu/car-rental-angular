@@ -8,7 +8,7 @@ import {Car, CarService} from '../../services/carservice';
 })
 export class AllCarsComponent implements OnInit {
   cars: Car[] = [];
-  isclickedToAdd = false;
+
 
   constructor(private carservice: CarService) {
   }
@@ -25,15 +25,11 @@ export class AllCarsComponent implements OnInit {
 
   onDeleteCar(id: number): void {
     const shouldDelete = confirm('Are you sure you want to delete it?');
+    console.log(shouldDelete);
     if (shouldDelete) {
       this.carservice.delete(id).subscribe(response => {
         this.updateCars();
       });
     }
-  }
-
-  // tslint:disable-next-line:typedef
-  clicked() {
-    this.isclickedToAdd = !this.isclickedToAdd;
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Car, CarService, FuelType} from '../../../services/carservice';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Brand, BrandService} from '../../../services/brandService';
@@ -14,11 +14,7 @@ export class AddCarComponent implements OnInit {
 
   brands: Brand[] = [];
 
-  fuelTypes: FuelTypeViewModel[] = [
-    {id: FuelType.Diesel, type: 'Diesel'},
-    {id: FuelType.Electric, type: 'Electric'},
-    {id: FuelType.Gasoline, type: 'Gasoline'}
-  ];
+  fuelTypes: string[] = ['Gasoline', 'Diesel', 'Electric'];
 
   constructor(private carService: CarService, private router: Router,
               private activeRoute: ActivatedRoute, private brandService: BrandService) {
@@ -43,9 +39,14 @@ export class AddCarComponent implements OnInit {
       id: new FormControl(car.id),
       name: new FormControl(car.name),
       passengers: new FormControl(car.passengers),
+      doors: new FormControl(car.doors),
+      engine: new FormControl(car.engine),
+      fuelType: new FormControl(car.fuelType),
       photo: new FormControl(car.photo),
+      price: new FormControl(car.price),
+      location: new FormControl(car.location),
+      featured: new FormControl(car.featured),
       brandId: new FormControl(car.brandId),
-      fuelType: new FormControl(car.fuelType)
     });
   }
 
@@ -55,9 +56,4 @@ export class AddCarComponent implements OnInit {
         return this.router.navigate(['/cars']);
       });
   }
-}
-
-interface FuelTypeViewModel {
-  id: number;
-  type: string;
 }
