@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class BrandService {
+export class BrandServices {
   private baseUrl = 'http://localhost:8080/api/brands';
 
   private httpHeaders = {
