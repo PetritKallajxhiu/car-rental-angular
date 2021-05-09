@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Car, CarService, FuelType} from '../../../services/carservice';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Brand, BrandService} from '../../../services/brandService';
@@ -14,11 +14,7 @@ export class AddCarComponent implements OnInit {
 
   brands: Brand[] = [];
 
-  fuelTypes: FuelTypeViewModel[] = [
-    {id: FuelType.Gasoline, name: 'Gasoline'},
-    {id: FuelType.Diesel, name: 'Diesel'},
-    {id: FuelType.Electric, name: 'Electric'}
-  ];
+  fuelTypes: string[] = ['Gasoline', 'Diesel', 'Electric'];
 
   constructor(private carService: CarService, private router: Router,
               private activeRoute: ActivatedRoute, private brandService: BrandService) {
@@ -60,9 +56,4 @@ export class AddCarComponent implements OnInit {
         return this.router.navigate(['/cars']);
       });
   }
-}
-
-interface FuelTypeViewModel {
-  id: number;
-  name: string;
 }

@@ -8,7 +8,7 @@ import {Car, CarService} from '../../services/carservice';
 })
 export class AllCarsComponent implements OnInit {
   cars: Car[] = [];
-  isclickedToAdd = false;
+
 
   constructor(private carservice: CarService) {
   }
@@ -31,10 +31,5 @@ export class AllCarsComponent implements OnInit {
         this.updateCars();
       });
     }
-  }
-
-  // tslint:disable-next-line:typedef
-  clicked() {
-    this.isclickedToAdd = !this.isclickedToAdd;
   }
 }

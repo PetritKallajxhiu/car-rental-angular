@@ -24,12 +24,12 @@
         <input type="text" class="form-control" id="engine" formControlName="engine"/>
       </div>
 
-<!--      <div class="mb-3">-->
-<!--        <label for="fuelType" class="form-label">Fuel</label>-->
-<!--        <select class="form-select" id="fuelType" aria-label="Default select example" formControlName="fuelType">-->
-<!--          <option *ngFor="let f of this.fuelTypes" [value]="f.id">{{f.name}}</option>-->
-<!--        </select>-->
-<!--      </div>-->
+      <div class="mb-3">
+        <label for="fuelType" class="form-label">Fuel</label>
+        <select class="form-select" id="fuelType" aria-label="Default select example" formControlName="fuelType">
+          <option *ngFor="let f of this.fuelTypes" [value]="f">{{f}}</option>
+        </select>
+      </div>
 
       <div class="mb-3">
         <label for="photo" class="form-label">Photo</label>
@@ -59,7 +59,7 @@
       </div>
 
       <div>
-        <button [disabled]="!carForm.valid" class="btn btn-primary">Save car</button>
+        <button [disabled]="!carForm.valid" class="btn btn-primary">Save</button>
         <a routerLink="/cars" class="btn">Cancel</a>
       </div>
 
