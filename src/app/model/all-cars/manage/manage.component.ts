@@ -56,11 +56,4 @@ export class ManageComponent implements OnInit {
         return this.router.navigate(['/cars']);
       });
   }
-
-  // tslint:disable-next-line:typedef
-  public noWhitespaceValidator(control: FormControl) {
-    const isWhitespace = (control.value || '').trim().length === 0;
-    const isValid = !isWhitespace;
-    return isValid ? null : {whitespace: true};
-  }
 }

@@ -4,13 +4,18 @@ import {AllCarsComponent} from './model/all-cars/all-cars.component';
 import {ManageComponent} from './model/all-cars/manage/manage.component';
 import {HomePageComponent} from './model/home-page/home-page.component';
 import {ClientComponent} from './model/client/client.component';
+import {BrandComponent} from './model/brand/brand.component';
+import {BrandManageComponent} from './model/brand/brand-manage/brand-manage.component';
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'cars', component: AllCarsComponent},
   {path: 'cars/manage', component: ManageComponent},
   {path: 'cars/manage/:id', component: ManageComponent},
-  {path: 'clients', component: ClientComponent}
+  {path: 'clients', component: ClientComponent},
+  {path: 'brands', component: BrandComponent},
+  {path: 'brands/manage', component: BrandManageComponent},
+  {path: 'brands/manage/:id', component: BrandManageComponent}
 ];
 
 @NgModule({
