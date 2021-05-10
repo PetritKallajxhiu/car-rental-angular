@@ -10,6 +10,8 @@ import {AllCarsComponent} from './model/all-cars/all-cars.component';
 import {ManageComponent} from './model/all-cars/manage/manage.component';
 import {ReservationComponent} from './model/reservation/reservation.component';
 import {ClientComponent} from './model/client/client.component';
+import { BrandComponent } from './model/brand/brand.component';
+import { BrandManageComponent } from './model/brand/brand-manage/brand-manage.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import {ClientComponent} from './model/client/client.component';
     AllCarsComponent,
     ManageComponent,
     ReservationComponent,
-    ClientComponent
+    ClientComponent,
+    BrandComponent,
+    BrandManageComponent
   ],
   imports: [
     BrowserModule,

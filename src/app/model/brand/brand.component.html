@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Cars</h5>
+    <button style="float: right" [routerLink]="['/brands/manage']" class="btn btn-primary">Add new brand</button>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date created</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let brand of brands">
+        <th scope="row">{{brand.id}}</th>
+        <td>{{brand.name}}</td>
+        <td>{{brand.createdAt}}</td>
+        <td>
+          <a class="me-3" [routerLink]="['/brands/manage', brand.id]">Edit</a>
+          <a class="me-3" (click)="onDeleteBrand(brand.id)">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
