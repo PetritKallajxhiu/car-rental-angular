@@ -46,7 +46,7 @@ export class ManageComponent implements OnInit {
       price: new FormControl(car.price, Validators.min(1)),
       location: new FormControl(car.location, Validators.required),
       featured: new FormControl(car.featured),
-      brandId: new FormControl(car.brandId, Validators.required),
+      brandId: new FormControl(car.brandId, Validators.required)
     });
   }
 

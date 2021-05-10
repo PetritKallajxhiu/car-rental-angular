@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Brand} from './brandServices';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,7 @@ export interface Car {
   location: string;
   featured: boolean;
   brandId: number;
+  brand: Brand;
 }
 
 export interface SaveCarRequest {
