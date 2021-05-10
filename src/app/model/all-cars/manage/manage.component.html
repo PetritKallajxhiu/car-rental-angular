@@ -8,21 +8,21 @@
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" formControlName="name"/>
         <span *ngIf="!carForm.get('name')?.valid && carForm.get('name')?.touched"
-              class="text-danger">Please enter a valid name</span>
+              class="text-danger">Name can't be blank!</span>
       </div>
 
       <div class="mb-3">
         <label for="passenger" class="form-label">Passenger</label>
         <input type="number" class="form-control" id="passenger" formControlName="passengers"/>
         <span *ngIf="!carForm.get('passengers')?.valid && carForm.get('passengers')?.touched"
-              class="text-danger">Passengers should be a number between 1-6! </span>
+              class="text-danger">Passengers should be a number between 1-7! </span>
       </div>
 
       <div class="mb-3">
         <label for="door" class="form-label">Door</label>
         <input type="number" class="form-control" id="door" formControlName="doors"/>
         <span *ngIf="!carForm.get('doors')?.valid && carForm.get('doors')?.touched"
-              class="text-danger">Doors number can't be smaller than 2! </span>
+              class="text-danger">Doors number should be between 2-6! </span>
       </div>
 
       <div class="mb-3">
