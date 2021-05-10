@@ -1,1 +1,35 @@
-<p>reservation works!</p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Reservation</h5>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Client</th>
+        <th scope="col">Car</th>
+        <th scope="col">Location</th>
+        <th scope="col">Price</th>
+        <th scope="col">PickupTime</th>
+        <th scope="col">PickupDate</th>
+        <th scope="col">Comment</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <th scope="row">{{reservation.id}}</th>
+        <td>{{reservation.clientId}}</td>
+        <td>{{reservation.carId}}</td>
+        <td>{{reservation.pickUpLocation}}</td>
+        <td>{{reservation.pickUpDate}}</td>
+        <td>{{reservation.pickUpTime}}</td>
+        <td>{{reservation.finalPrice}}</td>
+        <td>{{reservation.comment}}</td>
+
+        <td>
+          <a class="me-3" (click)="onDeleteReservation(reservation.id)">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

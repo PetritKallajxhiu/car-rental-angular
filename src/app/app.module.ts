@@ -13,7 +13,6 @@ import {ClientComponent} from './model/client/client.component';
 import { BrandComponent } from './model/brand/brand.component';
 import { BrandManageComponent } from './model/brand/brand-manage/brand-manage.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

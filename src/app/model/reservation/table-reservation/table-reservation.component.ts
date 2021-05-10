@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Reservation, ReservationService} from '../../services/reservationService';
+import {Reservation, ReservationService} from '../../../services/reservationService';
 
 @Component({
-  selector: 'app-reservation',
-  templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.css']
+  selector: 'app-table-reservation',
+  templateUrl: './table-reservation.component.html',
+  styleUrls: ['./table-reservation.component.css']
 })
-export class ReservationComponent implements OnInit {
+export class TableReservationComponent implements OnInit {
   reservations: Reservation [] = [];
 
 

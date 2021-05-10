@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Car, CarServices} from '../../services/carServices';
+import {Car, CarService} from '../../services/carservice';
 
 @Component({
   selector: 'app-all-cars',
@@ -9,7 +9,8 @@ import {Car, CarServices} from '../../services/carServices';
 export class AllCarsComponent implements OnInit {
   cars: Car[] = [];
 
-  constructor(private carService: CarServices) {
+
+  constructor(private carservice: CarService) {
   }
 
   ngOnInit(): void {
@@ -17,7 +18,7 @@ export class AllCarsComponent implements OnInit {
   }
 
   updateCars(): void {
-    this.carService.getAll().subscribe(response => {
+    this.carservice.getAll().subscribe(response => {
       this.cars = response;
     });
   }
@@ -26,7 +27,7 @@ export class AllCarsComponent implements OnInit {
     const shouldDelete = confirm('Are you sure you want to delete it?');
     console.log(shouldDelete);
     if (shouldDelete) {
-      this.carService.delete(id).subscribe(response => {
+      this.carservice.delete(id).subscribe(response => {
         this.updateCars();
       });
     }
