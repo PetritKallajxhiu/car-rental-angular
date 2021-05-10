@@ -1,0 +1,100 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add Car</h5>
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="id"/>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name"/>
+        <span *ngIf="!carForm.get('name')?.valid && carForm.get('name')?.touched"
+              class="text-danger">Please enter a valid name</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="passenger" class="form-label">Passenger</label>
+        <input type="number" class="form-control" id="passenger" formControlName="passengers"/>
+        <span *ngIf="!carForm.get('passengers')?.valid && carForm.get('passengers')?.touched"
+              class="text-danger">Passengers should be a number between 1-6! </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="door" class="form-label">Door</label>
+        <input type="number" class="form-control" id="door" formControlName="doors"/>
+        <span *ngIf="!carForm.get('doors')?.valid && carForm.get('doors')?.touched"
+              class="text-danger">Doors number can't be smaller than 2! </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="engine" class="form-label">Engine</label>
+        <input type="text" class="form-control" id="engine" formControlName="engine"/>
+        <span *ngIf="!carForm.get('engine')?.valid && carForm.get('engine')?.touched"
+              class="text-danger">Enigne can't be empty!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="fuelType" class="form-label">Fuel</label>
+        <select class="form-select" id="fuelType" aria-label="Default select example" formControlName="fuelType">
+          <option *ngFor="let f of this.fuelTypes" [value]="f">{{f}}</option>
+        </select>
+        <span *ngIf="!carForm.get('fuelType')?.valid && carForm.get('fuelType')?.touched"
+              class="text-danger">Please enter fuel type!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo</label>
+        <input type="text" class="form-control" id="photo" formControlName="photo"/>
+        <span *ngIf="!carForm.get('photo')?.valid && carForm.get('photo')?.touched"
+              class="text-danger">Please enter a photo!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" formControlName="price"/>
+        <span *ngIf="!carForm.get('price')?.valid && carForm.get('price')?.touched"
+              class="text-danger">Price can't be 0!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" formControlName="location"/>
+        <span *ngIf="!carForm.get('location')?.valid && carForm.get('location')?.touched"
+              class="text-danger">Location can't be empty!</span>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" formControlName="featured">
+        <label class="form-check-label" for="flexCheckDefault">Featured</label>
+      </div>
+
+      <!--      <div class="form-check">-->
+      <!--        <label class="form-label">Featured?</label>-->
+      <!--        <div class="form-check">-->
+      <!--          <input class="form-check-input" type="radio" value="0" name="flexRadioDefault" id="flexRadioDefault1"-->
+      <!--                 formControlName="featured">-->
+      <!--          <label class="form-check-label" for="flexRadioDefault1">No</label>-->
+      <!--        </div>-->
+      <!--        <div class="form-check">-->
+      <!--          <input class="form-check-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault2"-->
+      <!--                 formControlName="featured">-->
+      <!--          <label class="form-check-label" for="flexRadioDefault2">Yes</label>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Brand</label>
+        <select class="form-select" aria-label="Default select example" formControlName="brandId">
+          <option *ngFor="let b of this.brands" [value]="b.id">{{b.name}}</option>
+        </select>
+        <span *ngIf="!carForm.get('brandId')?.valid && carForm.get('brandId')?.touched"
+              class="text-danger">Car should have a brand!</span>
+      </div>
+
+      <div>
+        <button [disabled]="!carForm.valid" class="btn btn-primary">Save</button>
+        <a routerLink="/cars" class="btn">Cancel</a>
+      </div>
+
+    </form>
+  </div>
+</div>
