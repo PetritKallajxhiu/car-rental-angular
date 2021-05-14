@@ -41,12 +41,19 @@
               class="text-danger">Please enter fuel type!</span>
       </div>
 
+      <!--      <div class="mb-3">-->
+      <!--        <label for="photo" class="form-label">Photo</label>-->
+      <!--        <input type="text" class="form-control" id="photo" formControlName="photo"/>-->
+      <!--        <span *ngIf="!carForm.get('photo')?.valid && carForm.get('photo')?.touched"-->
+      <!--              class="text-danger">Please enter a photo!</span>-->
+      <!--      </div>-->
+
       <div class="mb-3">
         <label for="photo" class="form-label">Photo</label>
-        <input type="text" class="form-control" id="photo" formControlName="photo"/>
-        <span *ngIf="!carForm.get('photo')?.valid && carForm.get('photo')?.touched"
-              class="text-danger">Please enter a photo!</span>
+        <input type="file" class="form-control"
+               (change)="onFileSelected($event)" id="photo" formControlName="photo"/>
       </div>
+
 
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
@@ -82,7 +89,7 @@
       <!--      </div>-->
 
       <div class="mb-3">
-        <label for="photo" class="form-label">Brand</label>
+        <label class="form-label">Brand</label>
         <select class="form-select" aria-label="Default select example" formControlName="brandId">
           <option *ngFor="let b of this.brands" [value]="b.id">{{b.name}}</option>
         </select>

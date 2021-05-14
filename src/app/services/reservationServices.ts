@@ -1,15 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-
-import {Time} from '@angular/common';
-
+import {Client} from './clientServices';
+import {Car} from './carServices';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ReservationService {
+export class ReservationServices {
   private baseUrl = 'http://localhost:8080/api/reservations';
 
   private httpHeaders = {
@@ -38,29 +37,34 @@ export class ReservationService {
 
 export interface Reservation {
   id: number;
-
+  client: Client;
+  clientId: number;
   pickUpLocation: string;
   pickUpDate: Date;
-  pickUpTime: Time;
+  pickUpTime: string;
   finalPrice: number;
+  car: Car;
+  carId: number;
   comment: string;
   createdAt: Date;
-  carId: number;
-  clientId: number;
 }
 
 export interface SaveReservationRequest {
   id: number;
 
+  clientName: string;
+  clientEmail: string;
+  phoneNumber: string;
 
   pickUpLocation: string;
   pickUpDate: Date;
-  pickUpTime: Time;
+  pickUpTime: string;
   finalPrice: number;
   comment: string;
-  createdAt: Date;
+
+  car: Car;
   carId: number;
-  clientId: number;
 }
+
 
 
