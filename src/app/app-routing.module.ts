@@ -7,6 +7,7 @@ import {ClientComponent} from './model/client/client.component';
 import {BrandComponent} from './model/brand/brand.component';
 import {BrandManageComponent} from './model/brand/brand-manage/brand-manage.component';
 import {ReservationComponent} from './model/reservation/reservation.component';
+import {ReservationManageComponent} from './model/reservation/reservation-manage/reservation-manage.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'brands', component: BrandComponent},
   {path: 'brands/manage', component: BrandManageComponent},
   {path: 'brands/manage/:id', component: BrandManageComponent},
-  {path: 'reservations', component: ReservationComponent}
+  {path: 'reservations', component: ReservationComponent},
+  {path: 'reservations/manage', component: ReservationManageComponent}
 ];
 
 @NgModule({

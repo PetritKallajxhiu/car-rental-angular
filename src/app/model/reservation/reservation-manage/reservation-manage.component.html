@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add Reservation</h5>
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="id"/>
+
+      <div class="mb-3">
+        <label for="clientName" class="form-label">Client Name</label>
+        <input type="text" class="form-control" id="clientName" formControlName="clientName"/>
+        <span *ngIf="!reservationForm.get('clientName')?.valid && reservationForm.get('clientName')?.touched"
+              class="text-danger">Name can't be blank!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="clientEmail" class="form-label">Client email</label>
+        <input type="email" class="form-control" id="clientEmail" formControlName="clientEmail"/>
+        <span *ngIf="!reservationForm.get('clientEmail')?.valid && reservationForm.get('clientEmail')?.touched"
+              class="text-danger">Please enter a valid email!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"/>
+        <span *ngIf="!reservationForm.get('phoneNumber')?.valid && reservationForm.get('phoneNumber')?.touched"
+              class="text-danger">Pick Up Location can't be empty! </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="pickUpLocation" class="form-label">Pick Up Location</label>
+        <input type="text" class="form-control" id="pickUpLocation" formControlName="pickUpLocation"/>
+        <span *ngIf="!reservationForm.get('pickUpLocation')?.valid && reservationForm.get('pickUpLocation')?.touched"
+              class="text-danger">Pick Up Location can't be empty! </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="pickUpDate" class="form-label">Pick Up Date</label>
+        <input type="date" class="form-control" id="pickUpDate" formControlName="pickUpDate"/>
+        <span *ngIf="!reservationForm.get('pickUpDate')?.valid && reservationForm.get('pickUpDate')?.touched"
+              class="text-danger">Pick up Date can't be empty!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="pickUpTime" class="form-label">Pick Up Time</label>
+        <input type="text" class="form-control" id="pickUpTime" formControlName="pickUpTime"/>
+        <span *ngIf="!reservationForm.get('pickUpTime')?.valid && reservationForm.get('pickUpTime')?.touched"
+              class="text-danger">Pick up Time can't be empty!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="carId" class="form-label">Car</label>
+        <select class="form-select" aria-label="Default select example" id="carId" formControlName="carId">
+          <option value="" disabled selected>Cars</option>
+          <option *ngFor="let car of this.cars" [value]="car.id"> {{car.name}}</option>
+        </select>
+        <span *ngIf="!reservationForm.get('carId')?.valid && reservationForm.get('carId')?.touched"
+              class="text-danger">A car should be chosed!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="finalPrice" class="form-label">Final price</label>
+        <input type="number" class="form-control" id="finalPrice" formControlName="finalPrice"/>
+        <span *ngIf="!reservationForm.get('finalPrice')?.valid && reservationForm.get('finalPrice')?.touched"
+              class="text-danger">Final price can't be 0!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <input type="text" class="form-control" id="comment" formControlName="comment"/>
+      </div>
+
+      <div>
+        <button class="btn btn-primary">Save</button>
+        <a routerLink="/reservations" class="btn">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

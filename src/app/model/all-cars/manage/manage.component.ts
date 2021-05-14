@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Car, CarServices, FuelType} from '../../../services/carServices';
+import {Car, CarServices} from '../../../services/carServices';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Brand, BrandServices} from '../../../services/brandServices';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-manage',
@@ -16,7 +17,8 @@ export class ManageComponent implements OnInit {
 
   fuelTypes: string[] = ['Gasoline', 'Diesel', 'Electric'];
 
-  constructor(private carService: CarServices, private router: Router,
+
+  constructor(private carService: CarServices, private router: Router, private http: HttpClient,
               private activeRoute: ActivatedRoute, private brandService: BrandServices) {
   }
 
@@ -56,4 +58,24 @@ export class ManageComponent implements OnInit {
         return this.router.navigate(['/cars']);
       });
   }
+
+  get f() {
+    return this.carForm.controls;
+  }
+
+  onFileSelected(event: any) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.carForm.patchValue({
+          fileSource: reader.result
+        });
+      };
+    }
+  }
+
 }

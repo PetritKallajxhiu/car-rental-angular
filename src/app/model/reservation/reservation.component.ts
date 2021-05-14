@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Reservation, ReservationService} from '../../services/reservationService';
+import {Reservation, ReservationServices} from '../../services/reservationServices';
 
 @Component({
   selector: 'app-reservation',
@@ -10,7 +10,7 @@ export class ReservationComponent implements OnInit {
   reservations: Reservation [] = [];
 
 
-  constructor(private reservationservice: ReservationService) {
+  constructor(private reservationservice: ReservationServices) {
   }
 
   ngOnInit(): void {
