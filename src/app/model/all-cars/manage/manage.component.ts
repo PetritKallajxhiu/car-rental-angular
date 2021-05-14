@@ -3,7 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Car, CarServices} from '../../../services/carServices';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Brand, BrandServices} from '../../../services/brandServices';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpEventType, HttpResponse} from '@angular/common/http';
+import {UploadService} from '../../../services/upload.service';
 
 @Component({
   selector: 'app-manage',
@@ -18,12 +19,14 @@ export class ManageComponent implements OnInit {
   fuelTypes: string[] = ['Gasoline', 'Diesel', 'Electric'];
 
 
-  constructor(private carService: CarServices, private router: Router, private http: HttpClient,
-              private activeRoute: ActivatedRoute, private brandService: BrandServices) {
+  constructor(private carService: CarServices, private router: Router,
+              private http: HttpClient, private activeRoute: ActivatedRoute,
+              private brandService: BrandServices, private uploadService: UploadService) {
   }
 
   ngOnInit(): void {
-    if (this.activeRoute.snapshot.params.id) {
+    if (this.activeRoute.snapshot.params.id
+    ) {
       this.carService.getById(this.activeRoute.snapshot.params.id)
         .subscribe((car) => {
           this.carForm = this.createCarForm(car);
@@ -36,7 +39,8 @@ export class ManageComponent implements OnInit {
     });
   }
 
-  createCarForm(car: Car): FormGroup {
+  createCarForm(car: Car):
+    FormGroup {
     return new FormGroup({
       id: new FormControl(car.id),
       name: new FormControl(car.name, Validators.required),
@@ -59,23 +63,24 @@ export class ManageComponent implements OnInit {
       });
   }
 
-  get f() {
-    return this.carForm.controls;
-  }
-
-  onFileSelected(event: any) {
-    const reader = new FileReader();
-
-    if (event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      reader.readAsDataURL(file);
-
-      reader.onload = () => {
-        this.carForm.patchValue({
-          fileSource: reader.result
-        });
-      };
+  onFileSelected(event: any): void {
+    const file: File | null = event.target.files.item(0);
+    if (!file) {
+      return;
     }
+    this.uploadService.upload(file).subscribe(
+      (httpEvent: any) => {
+        if (httpEvent.type === HttpEventType.UploadProgress) {
+          console.log(Math.round(100 * event.loaded / event.total));
+        } else if (httpEvent instanceof HttpResponse) {
+          this.carForm.patchValue({
+            photo: file.name,
+          });
+        }
+      },
+      (err: any) => {
+        console.log(err);
+        alert('Error uploading file');
+      });
   }
-
 }

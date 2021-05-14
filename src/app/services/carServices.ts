@@ -56,7 +56,7 @@ export interface SaveCarRequest {
   doors: number;
   engine: string;
   fuelType: FuelType;
-  photo: any;
+  photo: string;
   price: number;
   location: string;
   featured: boolean;
