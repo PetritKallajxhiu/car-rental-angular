@@ -59,9 +59,9 @@ export class ReservationManageComponent implements OnInit {
 
   updatePrice(event: any): void {
     const carSelectedId = event.currentTarget.value;
-    this.carService.getById(carSelectedId).subscribe(resp => {
+    this.carService.getById(carSelectedId).subscribe(response => {
       this.reservationForm.patchValue({
-        finalPrice: resp.price,
+        finalPrice: response.price,
       });
     });
   }
