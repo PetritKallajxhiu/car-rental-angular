@@ -48,7 +48,7 @@
 
       <div class="mb-3">
         <label for="carId" class="form-label">Car</label>
-        <select class="form-select" aria-label="Default select example" id="carId" formControlName="carId">
+        <select class="form-select" aria-label="Default select example" (change)="updatePrice($event)" id="carId" formControlName="carId">
           <option value="" disabled selected>Cars</option>
           <option *ngFor="let car of this.cars" [value]="car.id"> {{car.name}}</option>
         </select>

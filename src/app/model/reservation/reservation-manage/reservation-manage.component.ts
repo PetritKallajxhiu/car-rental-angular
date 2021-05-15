@@ -12,7 +12,6 @@ import {ReservationServices, SaveReservationRequest} from '../../../services/res
 export class ReservationManageComponent implements OnInit {
   reservationForm = new FormGroup({});
   cars: Car[] = [];
-  price = 0;
 
   constructor(private carService: CarServices, private reservationService: ReservationServices,
               private router: Router) {
@@ -27,7 +26,9 @@ export class ReservationManageComponent implements OnInit {
 // } else {this.reservationForm = this.createReservationForm({} as Reservation); }
 
   ngOnInit(): void {
-    this.reservationForm = this.createReservationForm({} as SaveReservationRequest);
+    this.reservationForm = this.createReservationForm({
+      car: {}
+    } as SaveReservationRequest);
 
     this.carService.getAll().subscribe(data => {
       this.cars = data;
@@ -45,7 +46,6 @@ export class ReservationManageComponent implements OnInit {
       pickUpTime: new FormControl(request.pickUpTime, Validators.required),
       finalPrice: new FormControl(request.finalPrice, [Validators.required, Validators.min(1)]),
       carId: new FormControl(request.carId, Validators.required),
-      car: new FormControl(request.car),
       comment: new FormControl(request.comment)
     });
   }
@@ -55,6 +55,15 @@ export class ReservationManageComponent implements OnInit {
       .subscribe(response => {
         return this.router.navigate(['/reservations']);
       });
+  }
+
+  updatePrice(event: any): void {
+    const carSelectedId = event.currentTarget.value;
+    this.carService.getById(carSelectedId).subscribe(resp => {
+      this.reservationForm.patchValue({
+        finalPrice: resp.price,
+      });
+    });
   }
 
 }
