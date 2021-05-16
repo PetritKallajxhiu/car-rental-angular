@@ -15,6 +15,11 @@ import {BrandManageComponent} from './model/brand/brand-manage/brand-manage.comp
 import {ReservationManageComponent} from './model/reservation/reservation-manage/reservation-manage.component';
 import { BannerComponent } from './model/banner/banner.component';
 import { BannerManageComponent } from './model/banner/banner-manage/banner-manage.component';
+import { BlogComponent } from './model/blog/blog.component';
+import { BlogManageComponent } from './model/blog/blog-manage/blog-manage.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +33,10 @@ import { BannerManageComponent } from './model/banner/banner-manage/banner-manag
     BrandManageComponent,
     ReservationManageComponent,
     BannerComponent,
-    BannerManageComponent
+    BannerManageComponent,
+    BlogComponent,
+    BlogManageComponent,
+    
   ],
     imports: [
         BrowserModule,

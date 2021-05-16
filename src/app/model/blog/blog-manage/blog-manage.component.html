@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Add Post</h5>
+      <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id"/>
+  
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input type="text" class="form-control" id="author" formControlName="author"/>
+          <span *ngIf="!blogForm.get('author')?.valid && blogForm.get('author')?.touched"
+                class="text-danger">Author can't be blank!</span>
+        </div>
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title"/>
+            <span *ngIf="!blogForm.get('title')?.valid && blogForm.get('title')?.touched"
+                  class="text-danger">Title can't be blank!</span>
+          </div>
+  
+        <div class="mb-3">
+          <label for="photo" class="form-label">Photo</label>
+          <input type="file" class="form-control" id="photo" (change)="onFileSelected($event)"/>
+          <span *ngIf="!blogForm.get('photo')?.valid && blogForm.get('photo')?.touched"
+                class="text-danger">Please upload a photo </span>
+        </div>
+
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <input type="text" class="form-control" id="content" formControlName="content"/>
+            <span *ngIf="!blogForm.get('content')?.valid && blogForm.get('content')?.touched"
+                  class="text-danger">Content can't be blank!</span>
+          </div>
+  
+        <div>
+          <button [disabled]="!blogForm.valid" class="btn btn-primary">Save</button>
+          <a routerLink="/blogs" class="btn">Cancel</a>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">All Posts</h5>
+      <button style="float: right" [routerLink]="['/blogs/manage']" class="btn btn-primary">Add new Post</button>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Author</th>
+          <th scope="col">Title</th>
+          <th scope="col">Content</th>
+          <th scope="col">Photo</th>
+          <th scope="col">Created At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let blog of blogs">
+          <th scope="row">{{blog.id}}</th>
+          <td>{{blog.author}}</td>
+          <td>{{blog.title}}</td>
+          <td>{{blog.content}}</td>
+          <td><img src="http://localhost:8080/api/files/{{blog.photo}}" alt="{{blog.photo}}" width="100px"/></td>
+          <td>{{blog.createdAt}}</td>  
+          <td>
+            <a class="me-3" [routerLink]="['/blogs/manage', blog.id]">Edit</a>
+            <a class="me-3" (click)="onDeleteBlog(blog.id)">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

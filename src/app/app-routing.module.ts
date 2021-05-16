@@ -10,6 +10,8 @@ import {ReservationComponent} from './model/reservation/reservation.component';
 import {ReservationManageComponent} from './model/reservation/reservation-manage/reservation-manage.component';
 import {BannerComponent} from './model/banner/banner.component';
 import {BannerManageComponent} from './model/banner/banner-manage/banner-manage.component';
+import { BlogComponent } from './model/blog/blog.component';
+import { BlogManageComponent } from './model/blog/blog-manage/blog-manage.component';
 
 
 const routes: Routes = [
@@ -25,7 +27,11 @@ const routes: Routes = [
   {path: 'reservations/manage', component: ReservationManageComponent},
   {path: 'banners', component: BannerComponent},
   {path: 'banners/manage', component: BannerManageComponent},
-  {path: 'banners/manage/:id', component: BannerManageComponent}
+  {path: 'banners/manage/:id', component: BannerManageComponent},
+  {path: 'blogs', component: BlogComponent},
+  {path: 'blogs/manage', component: BlogManageComponent},
+  {path: 'blogs/manage/:id', component: BlogManageComponent}
+
 ];
 
 @NgModule({
