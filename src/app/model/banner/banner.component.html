@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Banners</h5>
+    <button style="float: right" [routerLink]="['/banners/manage']" class="btn btn-primary">Add new Banner</button>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Created At</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let banner of banners">
+        <th scope="row">{{banner.id}}</th>
+        <td>{{banner.name}}</td>
+        <td><img src="http://localhost:8080/api/files/{{banner.photo}}" alt="{{banner.photo}}" width="100px"/></td>
+        <td>{{banner.createdAt}}</td>
+        <td>
+          <a class="me-3" [routerLink]="['/banners/manage', banner.id]">Edit</a>
+          <a class="me-3" (click)="onDeleteBanner(banner.id)">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

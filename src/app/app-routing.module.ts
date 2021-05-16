@@ -8,6 +8,8 @@ import {BrandComponent} from './model/brand/brand.component';
 import {BrandManageComponent} from './model/brand/brand-manage/brand-manage.component';
 import {ReservationComponent} from './model/reservation/reservation.component';
 import {ReservationManageComponent} from './model/reservation/reservation-manage/reservation-manage.component';
+import {BannerComponent} from './model/banner/banner.component';
+import {BannerManageComponent} from './model/banner/banner-manage/banner-manage.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,10 @@ const routes: Routes = [
   {path: 'brands/manage', component: BrandManageComponent},
   {path: 'brands/manage/:id', component: BrandManageComponent},
   {path: 'reservations', component: ReservationComponent},
-  {path: 'reservations/manage', component: ReservationManageComponent}
+  {path: 'reservations/manage', component: ReservationManageComponent},
+  {path: 'banners', component: BannerComponent},
+  {path: 'banners/manage', component: BannerManageComponent},
+  {path: 'banners/manage/:id', component: BannerManageComponent}
 ];
 
 @NgModule({

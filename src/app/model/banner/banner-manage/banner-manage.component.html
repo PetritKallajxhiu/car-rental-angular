@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add Car</h5>
+    <form [formGroup]="bannerForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="id"/>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name"/>
+        <span *ngIf="!bannerForm.get('name')?.valid && bannerForm.get('name')?.touched"
+              class="text-danger">Name can't be blank!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo</label>
+        <input type="file" class="form-control" id="photo" (change)="onFileSelected($event)"/>
+        <span *ngIf="!bannerForm.get('photo')?.valid && bannerForm.get('photo')?.touched"
+              class="text-danger">Please upload a photo </span>
+      </div>
+
+      <div>
+        <button [disabled]="!bannerForm.valid" class="btn btn-primary">Save</button>
+        <a routerLink="/banners" class="btn">Cancel</a>
+      </div>
+
+    </form>
+  </div>
+</div>

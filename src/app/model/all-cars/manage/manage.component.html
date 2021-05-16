@@ -45,7 +45,7 @@
         <label for="photo" class="form-label">Photo</label>
         <input type="file" class="form-control" id="photo" (change)="onFileSelected($event)"/>
         <span *ngIf="!carForm.get('photo')?.valid && carForm.get('photo')?.touched"
-              class="text-danger">Please enter fuel type!</span>
+              class="text-danger">Please upload a photo!</span>
       </div>
 
       <div class="mb-3">
