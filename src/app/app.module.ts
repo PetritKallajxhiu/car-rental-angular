@@ -13,6 +13,8 @@ import {ClientComponent} from './model/client/client.component';
 import {BrandComponent} from './model/brand/brand.component';
 import {BrandManageComponent} from './model/brand/brand-manage/brand-manage.component';
 import {ReservationManageComponent} from './model/reservation/reservation-manage/reservation-manage.component';
+import { BannerComponent } from './model/banner/banner.component';
+import { BannerManageComponent } from './model/banner/banner-manage/banner-manage.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {ReservationManageComponent} from './model/reservation/reservation-manage
     ClientComponent,
     BrandComponent,
     BrandManageComponent,
-    ReservationManageComponent
+    ReservationManageComponent,
+    BannerComponent,
+    BannerManageComponent
   ],
     imports: [
         BrowserModule,
