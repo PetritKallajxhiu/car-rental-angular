@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add Comment</h5>
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="id"/>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name"/>
+        <span *ngIf="!commentForm.get('name')?.valid && commentForm.get('name')?.touched"
+              class="text-danger">Name can't be blank!</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="content" class="form-label">Content</label>
+        <input type="text" class="form-control" id="content" formControlName="content"/>
+        <span *ngIf="!commentForm.get('content')?.valid && commentForm.get('content')?.touched"
+              class="text-danger">Content is required! </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="rate" class="form-label">Rate</label>
+        <input type="number" class="form-control" id="rate" formControlName="rate"/>
+        <span *ngIf="!commentForm.get('rate')?.valid && commentForm.get('rate')?.touched"
+              class="text-danger">Rate should be beetwen 1 -5! </span>
+      </div>
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo</label>
+        <input type="file" class="form-control" id="photo" (change)="onFileSelected($event)"/>
+        <span *ngIf="!commentForm.get('photo')?.valid && commentForm.get('photo')?.touched"
+              class="text-danger">Please upload a photo!</span>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Car</label>
+        <select class="form-select" aria-label="Default select example" formControlName="carId">
+          <option *ngFor="let car of this.cars" [value]="car.id">{{car.name}}</option>
+        </select>
+        <span *ngIf="!commentForm.get('carId')?.valid && commentForm.get('carId')?.touched"
+              class="text-danger">A car should be selected!</span>
+      </div>
+
+      <div>
+        <button [disabled]="!commentForm.valid" class="btn btn-primary">Save</button>
+        <a routerLink="/comments" class="btn">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

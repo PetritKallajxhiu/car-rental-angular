@@ -25,8 +25,7 @@ export class ManageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.activeRoute.snapshot.params.id
-    ) {
+    if (this.activeRoute.snapshot.params.id) {
       this.carService.getById(this.activeRoute.snapshot.params.id)
         .subscribe((car) => {
           this.carForm = this.createCarForm(car);
