@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Comments</h5>
+    <button style="float: right" [routerLink]="['/comments/manage']" class="btn btn-primary">Add new comment</button>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Content</th>
+        <th scope="col">Rate</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Car</th>
+        <th scope="col">Created at</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let comment of comments">
+        <th scope="row">{{comment.id}}</th>
+        <td>{{comment.name}}</td>
+        <td>{{comment.content}}</td>
+        <td>{{comment.rate}}</td>
+        <td><img src="http://localhost:8080/api/files/{{comment.photo}}" alt="{{comment.photo}}" width="100px"/></td>
+        <td>{{comment.car.name}}</td>
+        <td>{{comment.createdAt}}</td>
+        <td>
+          <a class="me-3" [routerLink]="['/comments/manage', comment.id]">Edit</a>
+          <a class="me-3" (click)="onDeleteComment(comment.id)">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -4,21 +4,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HomePageComponent} from './model/home-page/home-page.component';
-import {AllCarsComponent} from './model/all-cars/all-cars.component';
-import {ManageComponent} from './model/all-cars/manage/manage.component';
-import {ReservationComponent} from './model/reservation/reservation.component';
-import {ClientComponent} from './model/client/client.component';
-import {BrandComponent} from './model/brand/brand.component';
-import {BrandManageComponent} from './model/brand/brand-manage/brand-manage.component';
-import {ReservationManageComponent} from './model/reservation/reservation-manage/reservation-manage.component';
-import { BannerComponent } from './model/banner/banner.component';
-import { BannerManageComponent } from './model/banner/banner-manage/banner-manage.component';
-import { BlogComponent } from './model/blog/blog.component';
-import { BlogManageComponent } from './model/blog/blog-manage/blog-manage.component';
-
-
+import {ReactiveFormsModule} from '@angular/forms';
+import { HomePageComponent } from './model/home-page/home-page.component';
+import { AllCarsComponent } from './model/all-cars/all-cars.component';
+import { AddCarComponent } from './model/all-cars/add-car/add-car.component';
+import { ReservationComponent } from './model/reservation/reservation.component';
 
 
 @NgModule({
@@ -26,25 +16,15 @@ import { BlogManageComponent } from './model/blog/blog-manage/blog-manage.compon
     AppComponent,
     HomePageComponent,
     AllCarsComponent,
-    ManageComponent,
-    ReservationComponent,
-    ClientComponent,
-    BrandComponent,
-    BrandManageComponent,
-    ReservationManageComponent,
-    BannerComponent,
-    BannerManageComponent,
-    BlogComponent,
-    BlogManageComponent,
-    
+    AddCarComponent,
+    ReservationComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

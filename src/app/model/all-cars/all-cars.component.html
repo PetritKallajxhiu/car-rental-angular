@@ -1,21 +1,21 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Cars</h5>
-    <button style="float: right" [routerLink]="['/cars/manage']" class="btn btn-primary">Add new car</button>
+    <button style="float: right"  [routerLink]="['/cars/manage']" class="btn btn-primary">Add new car</button>
     <table class="table table-bordered">
       <thead>
+
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Passenger</th>
         <th scope="col">Doors</th>
-        <th scope="col">Engine</th>
         <th scope="col">Fuel Type</th>
         <th scope="col">Photo</th>
         <th scope="col">Price</th>
         <th scope="col">Location</th>
         <th scope="col">Featured</th>
-        <th scope="col">Brand</th>
+        <th scope="col">brandId</th>
       </tr>
       </thead>
       <tbody>
@@ -24,16 +24,14 @@
         <td>{{car.name}}</td>
         <td>{{car.passengers}}</td>
         <td>{{car.doors}}</td>
-        <td>{{car.engine}}</td>
         <td>{{car.fuelType}}</td>
-        <td><img src="http://localhost:8080/api/files/{{car.photo}}" alt="{{car.photo}}" width="100px"/></td>
+        <td>{{car.photo}}</td>
         <td>{{car.price}}</td>
         <td>{{car.location}}</td>
         <td>{{car.featured}}</td>
-        <td>{{car.brand.name}}</td>
-
+        <td>{{car.brandId}}</td>
         <td>
-          <a class="me-3" [routerLink]="['/cars/manage', car.id]">Edit</a>
+          <a class="me-3" [routerLink]="['/cars', car.id]">Edit</a>
           <a class="me-3" (click)="onDeleteCar(car.id)">Delete</a>
         </td>
       </tr>
