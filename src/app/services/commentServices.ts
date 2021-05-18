@@ -1,21 +1,20 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Car} from './carServices';
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class CommentService {
+export class CommentServices {
   private baseUrl = 'http://localhost:8080/api/comments';
+
+  constructor(private http: HttpClient) {
+  }
 
   private httpHeaders = {
     headers: new HttpHeaders({'Content-Type': 'application/json'}),
   };
-
-  constructor(private http: HttpClient) {
-  }
 
   getAll(): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.baseUrl}`);
@@ -37,19 +36,19 @@ export class CommentService {
 export interface Comment {
   id: number;
   name: string;
-  content: string;
   photo: string;
+  content: string;
   rate: number;
+  createdAt: Date;
   carId: number;
   car: Car;
-  createdAt: Date;
 }
 
 export interface SaveCommentRequest {
   id: number;
   name: string;
-  content: string;
   photo: string;
+  content: string;
   rate: number;
   carId: number;
   car: Car;
